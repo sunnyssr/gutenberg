@@ -94,6 +94,7 @@ function HeaderToolbar() {
 			<ToolbarItem
 				as={ TableOfContents }
 				hasOutlineItemsDisabled={ isTextModeEnabled }
+				repositionDropdown={ showIconLabels && ! isWideViewport }
 				showTooltip={ ! showIconLabels }
 			/>
 			<ToolbarItem
