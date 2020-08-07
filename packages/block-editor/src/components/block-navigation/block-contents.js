@@ -19,7 +19,15 @@ import BlockDraggable from '../block-draggable';
 
 const BlockNavigationBlockContents = forwardRef(
 	(
-		{ onClick, block, isSelected, position, siblingCount, level, ...props },
+		{
+			onClick,
+			block,
+			isSelected,
+			position,
+			siblingBlockCount,
+			level,
+			...props
+		},
 		ref
 	) => {
 		const {
@@ -65,7 +73,7 @@ const BlockNavigationBlockContents = forwardRef(
 							onClick={ onClick }
 							isSelected={ isSelected }
 							position={ position }
-							siblingCount={ siblingCount }
+							siblingBlockCount={ siblingBlockCount }
 							level={ level }
 							draggable={ isDraggable }
 							onDragStart={ onDraggableStart }
@@ -80,7 +88,7 @@ const BlockNavigationBlockContents = forwardRef(
 							onClick={ onClick }
 							isSelected={ isSelected }
 							position={ position }
-							siblingCount={ siblingCount }
+							siblingBlockCount={ siblingBlockCount }
 							level={ level }
 							draggable={ isDraggable }
 							onDragStart={ onDraggableStart }
