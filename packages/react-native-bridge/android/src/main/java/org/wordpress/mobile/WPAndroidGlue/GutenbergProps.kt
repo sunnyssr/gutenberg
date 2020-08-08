@@ -1,6 +1,7 @@
 package org.wordpress.mobile.WPAndroidGlue
 
 import android.os.Bundle
+import com.facebook.react.bridge.WritableNativeMap
 
 data class GutenbergProps @JvmOverloads constructor(
     val enableMentions: Boolean,
@@ -32,6 +33,14 @@ data class GutenbergProps @JvmOverloads constructor(
             getSerializable(PROP_COLORS)?.let { putSerializable(PROP_COLORS, it) }
             getSerializable(PROP_GRADIENTS)?.let { putSerializable(PROP_GRADIENTS, it) }
         }
+    }
+
+    fun getUpdatedCapabilitiesProps() = WritableNativeMap().apply {
+        putMap(PROP_CAPABILITIES, WritableNativeMap().apply {
+            putBoolean(PROP_CAPABILITIES_MENTIONS, enableMentions)
+            putBoolean(PROP_CAPABILITIES_UNSUPPORTED_BLOCK_EDITOR, enableUnsupportedBlockEditor)
+            putBoolean(PROP_CAPABILITIES_MODAL_LAYOUT_PICKER, isModalLayoutPickerEnabled)
+        })
     }
 
     companion object {
