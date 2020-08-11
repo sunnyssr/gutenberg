@@ -34,7 +34,10 @@ export default function PreviewOptions( {
 					aria-expanded={ isOpen }
 					disabled={ ! isEnabled }
 				>
-					{ __( 'Preview' ) }
+					{
+						/* translators: button label text should, if possible, be under 16 characters. */
+						__( 'Preview' )
+					}
 				</Button>
 			) }
 			renderContent={ () => (
