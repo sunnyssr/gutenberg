@@ -42,6 +42,7 @@ function gutenberg_apply_block_supports( $block_content, $block ) {
 	}
 
 	$attributes = array();
+	$attributes = gutenberg_apply_generated_classname_support( $attributes, $block['attrs'], $block_type );
 	$attributes = gutenberg_apply_colors_support( $attributes, $block['attrs'], $block_type );
 	$attributes = gutenberg_apply_typography_support( $attributes, $block['attrs'], $block_type );
 	$attributes = gutenberg_apply_alignment_support( $attributes, $block['attrs'], $block_type );
@@ -81,11 +82,11 @@ function gutenberg_apply_block_supports( $block_content, $block ) {
 
 	// Apply new styles and classes.
 	if ( ! empty( $new_classes ) ) {
-		$block_root->setAttribute( 'class', $new_classes );
+		$block_root->setAttribute( 'class', trim( $new_classes ) );
 	}
 
 	if ( ! empty( $new_styles ) ) {
-		$block_root->setAttribute( 'style', $new_styles );
+		$block_root->setAttribute( 'style', trim( $new_styles ) );
 	}
 
 	return mb_convert_encoding( $dom->saveHtml(), 'UTF-8', 'HTML-ENTITIES' );
